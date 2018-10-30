@@ -2,13 +2,13 @@ import React from 'react'
 
 
 class Book extends React.Component {
-  componentDidMount() {
-    console.log(this);
-  }
   render() {
     return (
       <div className="book">
-        <div className="book-top">
+        <div className="book-top">{
+/* Replace hard-coded data with props to correctly render book details */         
+/* Implement function when selection is made (onChange)*/
+          }
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:  `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail}")` }}></div>
           <div className="book-shelf-changer">
             <select value = {this.props.book.shelf || "none"} onChange={(e) => (this.props.updateBookshelf(this.props.book, e.target.value))}>

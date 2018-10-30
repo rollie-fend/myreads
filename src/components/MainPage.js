@@ -12,13 +12,12 @@ class MainPage extends React.Component {
     BooksAPI.getAll()
     .then(response=> {
       this.setState({books:response});
-      console.log(response);
     })
   }
 
 /* create a function that will update the state of the bookshelf by passing values from the book array */
 
-updateBookshelf = (book,shelf) => {
+  updateBookshelf = (book,shelf) => {
     BooksAPI.update(book,shelf)
     .then(response=> {
       book.shelf=shelf;
@@ -45,6 +44,9 @@ updateBookshelf = (book,shelf) => {
               </div>
             </div>
             <div className="open-search">
+            {
+/* Change <a tag to route exact path */
+            }
               <Link to="/search">Add a book</Link>
             </div>
           </div>

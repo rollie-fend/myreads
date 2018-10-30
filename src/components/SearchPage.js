@@ -17,7 +17,6 @@ class SearchPage extends React.Component {
     BooksAPI.getAll()
     .then(response=> {
       this.setState({books:response});
-      console.log(response);
     })
   }
   updateQuery = (query) => {
@@ -29,7 +28,6 @@ class SearchPage extends React.Component {
       return this.setState({results: [] })
     }
     BooksAPI.search(this.state.query.trim()).then(results => {
-      console.log(results);
       if(results.error) {
         return this.setState({results: [] })
       }
@@ -42,7 +40,7 @@ class SearchPage extends React.Component {
       }
     })
   }
-
+/* Copy function from mainpage that updates the state of the bookshelf by passing values from the book array */
   updateBookshelf = (book,shelf) => {
     BooksAPI.update(book,shelf)
     .then(response=> {
