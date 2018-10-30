@@ -90,3 +90,21 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+UPDATES:
+The MyReads project is a bookshelf app that allows the user to select and categorize books that have been read, are currently reading, or want to read. The project which was built using React was rewritten to enable interaction such as in changing bookshelves, searching for books and routing.  For this, new components were created: the mainpage, searchpage, bookshelf and book.
+
+The mainpage shows three bookshelves (for currently reading, want to read, and read) and the corresponding books they contain.
+
+Book details include the title, author and thumbnail image of the cover.  Each book has controls for moving from one shelf to another.
+
+The mainpage has a navigation control for moving to the searchpage where the user can search for books using a book title or author as keyword.  The search results displayed change as the user types a keyword.
+
+Books displayed in the search results also have controls for moving it to bookshelves and are categorized (currently reading, want to read, read, or none).  When a books category
+is changed in the searchpage, this is reflected in the mainpage.
+
+In order to use the application, npm should first be installed by typing the following command: npm install.  To run the application, type the following command: npm start.
+
+DISCLOSURE:
+
+Portions of the scripts that I developed were based on those that can be found in "Tutorial Request: FEND Project 6 Walkthrough" at https://www.youtube.com/watch?v=acJHkd6K5kI by Ryan Waite, and "MyReads React Zoom Study Session with Doug Brown" at https://www.youtube.com/watch?v=OcL7-7cRpkQ&feature=youtu.be.
