@@ -16,6 +16,18 @@ class MainPage extends React.Component {
     })
   }
 
+/* create a function that will update the state of the bookshelf by passing values from the book array */
+
+updateBookshelf = (book,shelf) => {
+    BooksAPI.update(book,shelf)
+    .then(response=> {
+      book.shelf=shelf;
+      this.setState(state=>({
+        books: state.books.filter(Book=>Book.id !== book.id).concat(book)
+      }))
+    })
+  }
+
   render() {
     return (
       <div className="app">
@@ -26,9 +38,9 @@ class MainPage extends React.Component {
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
-                  <BookShelf title="Currently Reading" books={this.state.books.filter(b=>b.shelf==="currentlyReading")}/>
-                  <BookShelf title="Want to Read" books={this.state.books.filter(b=>b.shelf==="wantToRead")}/>
-                  <BookShelf title="Read" books={this.state.books.filter(b=>b.shelf==="read")}/>
+                  <BookShelf updateBookshelf={this.updateBookshelf} title="Currently Reading" books={this.state.books.filter(book=>book.shelf==="currentlyReading")}/>
+                  <BookShelf updateBookshelf={this.updateBookshelf} title="Want to Read" books={this.state.books.filter(book=>book.shelf==="wantToRead")}/>
+                  <BookShelf updateBookshelf={this.updateBookshelf} title="Read" books={this.state.books.filter(book=>book.shelf==="read")}/>
                 </div>
               </div>
             </div>
