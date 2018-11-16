@@ -1,43 +1,46 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+The MyReads Project, a project requirement for Udacity's Front End Nanodegree Course, is a library application that lets the user search for and select books, and organize them by bookshelves (Currently Reading, Want To Read, and Read).
+Students are provided a starter template with which to start developing the application.  Project dependencies are installed with 'npm install' and the development server is started with 'npm start'.  The organization of the files of the finished project are depicted below:
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
-
-## TL;DR
-
-To get started developing right away:
-
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
-
-## What You're Getting
-```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── package.json # npm package manager file. 
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
+│   ├── favicon.ico # React Icon
+│   └── index.html 
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
+    ├── components # React UI components 
+    │   ├── book.js
+    │   ├── bookshelf.js
+    │   ├── mainpage.js
+    │   └── searchpage.js
+    ├── icons # Helpful images for the app. 
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+    ├── App.css # Styles for the app.
+    ├── App.js # This is the root of the app. 
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is not required.
+    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    ├── index.css # Global styles. 
+    └── index.js # File used for DOM rendering only.
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+The mainpage shows three bookshelves (for currently reading, want to read, and read) and the corresponding books they contain.
+
+Book details include the title, author and thumbnail image of the cover.  Each book has controls for moving it from one shelf to another.
+
+The mainpage has a navigation control for moving to the searchpage where the user can search for books using a book title or author as keyword.  The search results displayed change interactively as the user types a keyword.
+
+Books displayed in the search results also have controls for moving it to bookshelves or for categorization (currently reading, want to read, read, or none).  A change in a book's category
+in the searchpage is instantly reflected in the mainpage.
+
+In order to use the application, npm should first be installed by typing the following command: npm install.  To run the application, type the following command: npm start.	
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+To simplify your development process, Udacity provided a backend server for students to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)
@@ -52,7 +55,7 @@ getAll()
 ```
 
 * Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
+* This collection represents the books currently in the bookshelves in the app.
 
 ### `update`
 
@@ -76,10 +79,10 @@ search(query)
 
 * query: `<String>`
 * Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+* These books do not know which shelf they are on. They are raw results only. The finished application made sure that books have the correct state while on the search page.
 
 ## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
+The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend.
 
 ## Create React App
 
@@ -87,23 +90,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
-
-UPDATES:
-The MyReads project is a bookshelf app that allows the user to select and categorize books that have been read, are currently reading, or want to read. The project which was built using React was rewritten to enable interaction such as in changing bookshelves, searching for books and routing.  For this, new components were created: the mainpage, searchpage, bookshelf and book.
-
-The mainpage shows three bookshelves (for currently reading, want to read, and read) and the corresponding books they contain.
-
-Book details include the title, author and thumbnail image of the cover.  Each book has controls for moving from one shelf to another.
-
-The mainpage has a navigation control for moving to the searchpage where the user can search for books using a book title or author as keyword.  The search results displayed change as the user types a keyword.
-
-Books displayed in the search results also have controls for moving it to bookshelves and are categorized (currently reading, want to read, read, or none).  When a books category
-is changed in the searchpage, this is reflected in the mainpage.
-
-In order to use the application, npm should first be installed by typing the following command: npm install.  To run the application, type the following command: npm start.
+This repository is for submission purposes only but will accept pull requests.
 
 DISCLOSURE:
 
