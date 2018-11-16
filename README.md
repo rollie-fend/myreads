@@ -3,6 +3,8 @@
 The MyReads Project, a project requirement for Udacity's Front End Nanodegree Course, is a library application that lets the user search for and select books, and organize them by bookshelves (Currently Reading, Want To Read, and Read).
 Students are provided a starter template with which to start developing the application.  Project dependencies are installed with 'npm install' and the development server is started with 'npm start'.  The organization of the files of the finished project are depicted below:
 
+```
+
 ├── CONTRIBUTING.md
 ├── README.md - This file.
 ├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
@@ -27,6 +29,7 @@ Students are provided a starter template with which to start developing the appl
     ├── index.css # Global styles. 
     └── index.js # File used for DOM rendering only.
 
+```
 The mainpage shows three bookshelves (for currently reading, want to read, and read) and the corresponding books they contain.
 
 Book details include the title, author and thumbnail image of the cover.  Each book has controls for moving it from one shelf to another.
@@ -92,6 +95,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This repository is for submission purposes only but will accept pull requests.
 
-DISCLOSURE:
+## Disclosure:
 
 Portions of the scripts that I developed were based on those that can be found in "Tutorial Request: FEND Project 6 Walkthrough" at https://www.youtube.com/watch?v=acJHkd6K5kI by Ryan Waite, and "MyReads React Zoom Study Session with Doug Brown" at https://www.youtube.com/watch?v=OcL7-7cRpkQ&feature=youtu.be.
