@@ -1,13 +1,10 @@
 import React from 'react'
 
-
 class Book extends React.Component {
   render() {
     return (
       <div className="book">
         <div className="book-top">{
-/* Replace hard-coded data with props to correctly render book details */         
-/* Implement function when selection is made (onChange)*/
           }
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:  `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail}")` }}></div>
           <div className="book-shelf-changer">
@@ -23,7 +20,7 @@ class Book extends React.Component {
         <div className="book-title">{this.props.book.title}</div>
         <div className="book-authors">{this.props.book.authors || "Author unknown"}</div>
       </div>
-    )
+    );
   }
 }
 

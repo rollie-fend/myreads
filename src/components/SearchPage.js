@@ -5,22 +5,22 @@ import Book from './Book'
 
 
 class SearchPage extends React.Component {
-/* initialize the state */
+
   state = {
     books:[],
     query: "",
     results:[]
   }
 
-/* Fetch data from the backend and update the state (populate book array) */
   componentDidMount() {
     BooksAPI.getAll()
-    .then(response=> {
-      this.setState({books:response});
+    .then(books=> {
+      this.setState({books});
     })
   }
+
   updateQuery = (query) => {
-    this.setState({query: query}, this.submitSearch);
+    this.setState({query: query.trim()}, this.submitSearch);
   }
 
   submitSearch() {
@@ -40,19 +40,9 @@ class SearchPage extends React.Component {
       }
     })
   }
-/* Copy function from mainpage that updates the state of the bookshelf by passing values from the book array */
-  updateBookshelf = (book,shelf) => {
-    BooksAPI.update(book,shelf)
-    .then(response=> {
-      book.shelf=shelf;
-      this.setState(state=>({
-        books: state.books.filter(Book=>Book.id !== book.id).concat(book)
-      }))
-    })
-  }
-
 
   render() {
+    const {updateBookshelf}= this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -62,14 +52,15 @@ class SearchPage extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">              {
-                 this.state.results.map((book, key) => <Book updateBookshelf={this.state.updateBookshelf} book={book} key={book.id} />)
-              }
-</ol>
+          <ol className="books-grid">
+            {
+              this.state.results.map((book,key)=> <Book updateBookshelf={updateBookshelf} book={book} key={book.id} shelf={book.shelf}/>)
+            }
+          </ol>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default SearchPage;   
+export default SearchPage;
